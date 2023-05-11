@@ -331,6 +331,7 @@ public class PMT_Testcoverage {
         String department = [select Department from User where id = :userInfo.getUserId() limit 1].Department;
         System.runAs(testUser){
             Test.startTest();
+			
             PMT_Project__c project = [SELECT Id,Start_Fiscal_Year__c,End_Fiscal_Year__c FROM PMT_Project__c LIMIT 1];
             PMT_ResourceManagementCtrl.ResourceDataWrapper wrapper = PMT_ResourceManagementCtrl.getResourceAllocations('FY22',department , null, null, project.Id);
             Test.stopTest();
